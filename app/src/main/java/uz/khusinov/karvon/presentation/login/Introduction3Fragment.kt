@@ -7,15 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import uz.khusinov.karvon.R
-import uz.khusinov.karvon.databinding.FragmentLoginBinding
-import uz.khusinov.karvon.presentation.BaseFragment
+import uz.khusinov.karvon.databinding.FragmentIntroduction1Binding
+import uz.khusinov.karvon.databinding.FragmentIntroduction3Binding
 import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 
 
-class LoginFragment : BaseFragment(R.layout.fragment_login) {
+class Introduction3Fragment : Fragment(R.layout.fragment_introduction3) {
 
-    private val binding by viewBinding { FragmentLoginBinding.bind(it) }
-
+    private val binding by viewBinding { FragmentIntroduction3Binding.bind(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,13 +24,9 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
     private fun setupUI() {
         binding.apply {
 
-            loginBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_numberConfirmFragment)
+            next.setOnClickListener {
+                findNavController().navigate(R.id.action_introduction3Fragment_to_mainFragment)
             }
-
-
         }
     }
-
-
 }

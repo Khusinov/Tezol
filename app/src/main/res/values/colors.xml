@@ -6,5 +6,7 @@
     <color name="main_color">#FFD92B</color>
     <color name="ETBackground">#F3F3F3</color>
     <color name="gray_color">#ADADAD</color>
+    <color name="gray_color_2">#B1B1B1</color>
+
 
 </resources>

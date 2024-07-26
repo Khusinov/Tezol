@@ -2,15 +2,18 @@ package uz.khusinov.karvon.presentation.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
- import android.view.View
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import uz.khusinov.karvon.R
-import uz.khusinov.karvon.databinding.FragmentNumberConfirmBinding
+import uz.khusinov.karvon.databinding.FragmentIntroduction1Binding
 import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 
-class NumberConfirmFragment : Fragment(R.layout.fragment_number_confirm) {
 
-    private val binding by viewBinding { FragmentNumberConfirmBinding.bind(it) }
+class Introduction1Fragment : Fragment(R.layout.fragment_introduction1) {
+
+    private val binding by viewBinding { FragmentIntroduction1Binding.bind(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -20,8 +23,9 @@ class NumberConfirmFragment : Fragment(R.layout.fragment_number_confirm) {
     private fun setupUI() {
         binding.apply {
 
-            confirmButton.setOnClickListener {
-                findNavController().navigate(R.id.action_numberConfirmFragment_to_introduction1Fragment)
+
+            next.setOnClickListener {
+                findNavController().navigate(R.id.action_introduction1Fragment_to_introduction2Fragment)
             }
 
         }

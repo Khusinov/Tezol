@@ -76,7 +76,6 @@
         android:textSize="18sp"
         app:cornerRadius="100dp" />
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/resentCode"
         android:layout_width="match_parent"

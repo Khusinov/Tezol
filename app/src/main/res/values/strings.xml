@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Karvon</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ok">Ok</string>
     <string name="enter_phone_number">Telefon raqamingizni kiriting</string>
@@ -10,5 +9,19 @@
     <string name="confirm">Tasdiqlash</string>
     <string name="gps_ni_yoqib_qayta_urinib_ko_ring">GPS ni yoqib qayta urinib ko\'ring</string>
     <string name="pgs_turned_off">GPS o\'chirilgan</string>
+    <string name="in_time">O‘z vaqtida</string>
+    <string name="we_deliver_in_time">Biz barcha buyurtmalarni o’z vaqtida yetkazib beramiz</string>
+    <string name="next">Keyingisi</string>
+    <string name="choose_options">Tanlov imkoni</string>
+    <string name="the_best">A’lo sifat</string>
+    <string name="we_recommend_good_products">Biz siz uchun eng sifatli maxsulotlarni taklif qilamiz</string>
+    <string name="start">Boshlash</string>
+    <string name="home">Asosiy</string>
+    <string name="shops">Do\'konlar</string>
+    <string name="catalog">Katalog</string>
+    <string name="basket">Savat</string>
+    <string name="profile">Profil</string>
+    <string name="exit_app">Dasturdan chiqish uchun yana bir marta bosing</string>
+
 
 </resources>

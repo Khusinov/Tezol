@@ -18,5 +18,50 @@
         android:id="@+id/loginFragment"
         android:name="uz.khusinov.karvon.presentation.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_numberConfirmFragment"
+            app:destination="@id/numberConfirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introduction1Fragment"
+        android:name="uz.khusinov.karvon.presentation.login.Introduction1Fragment"
+        android:label="fragment_introduction1"
+        tools:layout="@layout/fragment_introduction1" >
+        <action
+            android:id="@+id/action_introduction1Fragment_to_introduction2Fragment"
+            app:destination="@id/introduction2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introduction2Fragment"
+        android:name="uz.khusinov.karvon.presentation.login.Introduction2Fragment"
+        android:label="fragment_introduction2"
+        tools:layout="@layout/fragment_introduction2" >
+        <action
+            android:id="@+id/action_introduction2Fragment_to_introduction3Fragment"
+            app:destination="@id/introduction3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introduction3Fragment"
+        android:name="uz.khusinov.karvon.presentation.login.Introduction3Fragment"
+        android:label="fragment_introduction3"
+        tools:layout="@layout/fragment_introduction3" >
+        <action
+            android:id="@+id/action_introduction3Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/numberConfirmFragment"
+        android:name="uz.khusinov.karvon.presentation.login.NumberConfirmFragment"
+        android:label="fragment_number_confirm"
+        tools:layout="@layout/fragment_number_confirm" >
+        <action
+            android:id="@+id/action_numberConfirmFragment_to_introduction1Fragment"
+            app:destination="@id/introduction1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="uz.khusinov.karvon.presentation.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>
