@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingHorizontal="20.dp"
     tools:context=".presentation.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.dp"
+        android:background="@drawable/search_view_background"
+        app:queryHint="Search"
+        android:iconifiedByDefault="false"
+        app:searchIcon="@drawable/ic_search" />
 
-</FrameLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="140.dp"
+        android:layout_marginTop="20.dp"
+        app:strokeColor="@color/white"
+        app:cardCornerRadius="12.dp">
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
