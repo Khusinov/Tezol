@@ -20,7 +20,7 @@
             android:textColor="@color/black_text_color"
             android:textSize="16sp"
             android:paddingHorizontal="24dp"
-            android:fontFamily="@font/manrope_medium" />
+            android:fontFamily="@font/lato_regular" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ok"
@@ -31,7 +31,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:text="@string/ok"
-            android:textColor="@color/white_only"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             app:cornerRadius="24dp" />
     </LinearLayout>

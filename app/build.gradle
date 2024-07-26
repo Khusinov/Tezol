@@ -63,4 +63,14 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
+    // pinview
+    //implementation(libs.otpview)
+    implementation("com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0")
+
+    // Add Hilt dependencies
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+
+
+
 }

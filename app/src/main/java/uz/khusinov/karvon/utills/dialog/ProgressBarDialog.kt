@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import uz.khusinov.marjonamarketcourier2.R
+import uz.khusinov.karvon.R
 
 
 @SuppressLint("InflateParams")

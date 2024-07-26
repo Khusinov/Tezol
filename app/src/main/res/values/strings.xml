@@ -2,4 +2,13 @@
     <string name="app_name">Karvon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok">Ok</string>
+    <string name="enter_phone_number">Telefon raqamingizni kiriting</string>
+    <string name="phone_prefix">+998 (</string>
+    <string name="phone_mask">##) ### ## ##</string>
+    <string name="login">Kirish</string>
+    <string name="confirm">Tasdiqlash</string>
+    <string name="gps_ni_yoqib_qayta_urinib_ko_ring">GPS ni yoqib qayta urinib ko\'ring</string>
+    <string name="pgs_turned_off">GPS o\'chirilgan</string>
+
 </resources>

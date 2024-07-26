@@ -1,12 +1,12 @@
-package uz.megasoft.nondriver.utils.dialog
+package uz.khusinov.karvon.utills.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import uz.khusinov.marjonamarketcourier2.R
-import uz.khusinov.marjonamarketcourier2.databinding.DialogMessageBinding
+import uz.khusinov.karvon.R
+import uz.khusinov.karvon.databinding.DialogMessageBinding
 
 class MessageDialog(private val message: String, private val dialogText: String? = null) :
     DialogFragment() {

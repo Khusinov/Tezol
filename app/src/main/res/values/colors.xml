@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black_text_color">#212121</color>
+    <color name="main_color">#FFD92B</color>
+    <color name="ETBackground">#F3F3F3</color>
+    <color name="gray_color">#ADADAD</color>
+
 </resources>
