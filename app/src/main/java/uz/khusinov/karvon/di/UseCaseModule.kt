@@ -6,11 +6,15 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.domain.repository.AuthRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
+import uz.khusinov.karvon.domain.repository.ShopsRepository
 import uz.khusinov.karvon.domain.use_case.auth.AuthUseCases
 import uz.khusinov.karvon.domain.use_case.auth.ConfirmUseCase
 import uz.khusinov.karvon.domain.use_case.auth.LoginUseCase
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
+import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCase
 import uz.khusinov.karvon.domain.use_case.orders.OrdersUseCases
+import uz.khusinov.karvon.domain.use_case.shops.GetProductsUseCase
+import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCases
 import javax.inject.Singleton
 
 @Module
@@ -31,6 +35,15 @@ object UseCaseModule {
     fun provideOrdersUseCase(repository: OrdersRepository): OrdersUseCases {
         return OrdersUseCases(
             getOrdersUseCase = GetOrdersUseCase(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideShopsUseCase(repository: ShopsRepository): ShopsUseCases {
+        return ShopsUseCases(
+            getShopsUseCase = ShopsUseCase(repository),
+            getProductsUseCase = GetProductsUseCase(repository)
         )
     }
 

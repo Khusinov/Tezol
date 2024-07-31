@@ -46,7 +46,6 @@ class NumberConfirmFragment : BaseFragment(R.layout.fragment_number_confirm) {
     private fun setupUI() {
         binding.apply {
 
-
             confirmButton.setOnClickListener {
                 if (otpView.text.toString().length == 4) {
                     val confirmRequest = ConfirmRequest(otpView.text.toString(), sharedPref.phone)

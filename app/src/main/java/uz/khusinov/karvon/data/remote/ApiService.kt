@@ -12,6 +12,8 @@ import uz.khusinov.karvon.domain.model.LoginResponse
 import uz.khusinov.karvon.domain.model.Order
 import uz.khusinov.karvon.domain.model.base.BaseResponseList
 import uz.khusinov.karvon.domain.model.base.BaseResponseObject
+import uz.khusinov.karvon.domain.model.shop.Product
+import uz.khusinov.karvon.domain.model.shop.Shop
 
 
 interface ApiService {
@@ -28,8 +30,17 @@ interface ApiService {
     ): BaseResponseObject<ConfirmResponse>
 
 
-    @GET("get/orders/")
+    @GET("shop")
+    suspend fun getShops(): BaseResponseList<Shop>
+
+    @GET("shop/product/{shopId}")
+    @FormUrlEncoded
+    suspend fun getShopsProducts(@Path("shopId") shopId: Int): BaseResponseList<Product>
+
+    @GET("shop")
     suspend fun getOrders(): BaseResponseList<Order>
+
+
 
 
 

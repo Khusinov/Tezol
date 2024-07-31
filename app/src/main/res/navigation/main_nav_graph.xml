@@ -63,5 +63,14 @@
         android:id="@+id/mainFragment"
         android:name="uz.khusinov.karvon.presentation.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_selectedShopFragment"
+            app:destination="@id/selectedShopFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedShopFragment"
+        android:name="uz.khusinov.karvon.presentation.shops.selectedShop.SelectedShopFragment"
+        android:label="fragment_selected_shop"
+        tools:layout="@layout/fragment_selected_shop" />
 </navigation>

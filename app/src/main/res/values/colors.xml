@@ -9,6 +9,7 @@
     <color name="gray_color_2">#B1B1B1</color>
     <color name="red">#FF0000</color>
     <color name="search_background">#EEEEEE</color>
+    <color name="product_bg">#F3F5F6</color>
 
 
 </resources>
