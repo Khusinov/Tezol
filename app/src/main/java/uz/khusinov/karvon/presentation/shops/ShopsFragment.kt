@@ -3,10 +3,11 @@ package uz.khusinov.karvon.presentation.shops
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import uz.khusinov.karvon.R
 import uz.khusinov.karvon.databinding.FragmentShopsBinding
 import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 
-class ShopsFragment : Fragment() {
+class ShopsFragment : Fragment(R.layout.fragment_shops) {
     private val binding by viewBinding { FragmentShopsBinding.bind(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,7 +1,7 @@
-package uz.khusinov.marjonamarketcourier2.utills
+package uz.khusinov.karvon.utills
 
 object Constants {
-    const val BASE_URL = "http://marjona-market.uz/api/"
+    const val BASE_URL = "http://tezol.amusoft.uz/api/"
     const val NEW_ORDER = "newOrder"
     const val READY_ORDER = "orderReady"
     const val CANCEL_ORDER = "cancelOrder"

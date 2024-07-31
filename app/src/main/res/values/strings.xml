@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Karvon</string>
+    <string name="app_name">Tezol</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ok">Ok</string>
     <string name="enter_phone_number">Telefon raqamingizni kiriting</string>
@@ -22,6 +22,9 @@
     <string name="basket">Savat</string>
     <string name="profile">Profil</string>
     <string name="exit_app">Dasturdan chiqish uchun yana bir marta bosing</string>
+    <string name="news">Yangilar</string>
+    <string name="top_maxsulotlar">Top maxsulotlar</string>
+    <string name="most_sold">Eng ko\'p sotilgan</string>
 
 
 </resources>

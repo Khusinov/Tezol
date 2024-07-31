@@ -6,8 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.domain.repository.AuthRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
-import uz.khusinov.karvon.domain.use_case.login.LoginUseCase
-import uz.khusinov.karvon.domain.use_case.login.AuthUseCases
+import uz.khusinov.karvon.domain.use_case.auth.AuthUseCases
+import uz.khusinov.karvon.domain.use_case.auth.ConfirmUseCase
+import uz.khusinov.karvon.domain.use_case.auth.LoginUseCase
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
 import uz.khusinov.karvon.domain.use_case.orders.OrdersUseCases
 import javax.inject.Singleton
@@ -20,7 +21,8 @@ object UseCaseModule {
     @Singleton
     fun provideAuthUseCase(repository: AuthRepository): AuthUseCases {
         return AuthUseCases(
-            loginUseCase = LoginUseCase(repository)
+            loginUseCase = LoginUseCase(repository),
+            confirmUseCase = ConfirmUseCase(repository)
         )
     }
 

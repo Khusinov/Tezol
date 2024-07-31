@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uz.khusinov.karvon.SharedPref
  import uz.khusinov.karvon.data.remote.ApiService
-import uz.khusinov.marjonamarketcourier2.utills.Constants.BASE_URL
+import uz.khusinov.karvon.utills.Constants.BASE_URL
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton

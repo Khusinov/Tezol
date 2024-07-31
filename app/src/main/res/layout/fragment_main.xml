@@ -29,7 +29,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         app:activeIndicatorLabelPadding="-4dp"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
         app:itemIconTint="@color/selected_nav_bar"
         app:itemTextColor="@color/selected_nav_bar"
         app:labelVisibilityMode="labeled"

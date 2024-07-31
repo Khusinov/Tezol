@@ -86,4 +86,16 @@ class SharedPref @Inject constructor(context: Context) {
     var startChecked: Boolean
         get() = mySharedPref.getBoolean("startChecked", false)
         set(value) = mySharedPref.edit { putBoolean("startChecked", value) }
+
+    var phone: String
+        get() = mySharedPref.getString("phone", "")!!
+        set(value) {
+            mySharedPref.edit().putString("phone", value).apply()
+        }
+
+    var userId: String
+        get() = mySharedPref.getString("userId", "")!!
+        set(value) {
+            mySharedPref.edit().putString("userId", value).apply()
+        }
 }
