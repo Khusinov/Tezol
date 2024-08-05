@@ -25,7 +25,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="66dp"
         android:fontFamily="@font/lato_bold"
-        android:text="Karvon best"
+        android:text="TEZOL"
         android:textColor="@color/black_text_color"
         android:textSize="24sp" />
 
