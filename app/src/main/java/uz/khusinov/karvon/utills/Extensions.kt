@@ -126,7 +126,7 @@ fun Int?.orEmpty(default: Int = 0): Int {
     return this ?: default
 }
 
-fun Context.dp2px(dp: Int): Int {
+fun Context.dp2px(dp: Float): Int {
     val scale = resources.displayMetrics.density
     return (dp * scale + 0.5f).toInt()
 }

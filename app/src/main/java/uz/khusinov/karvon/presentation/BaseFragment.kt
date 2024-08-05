@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import uz.khusinov.karvon.SharedPref
-import uz.khusinov.marjonamarketcourier2.utills.Constants.ERROR_401
+import uz.khusinov.karvon.utills.Constants.ERROR_401
 import uz.khusinov.karvon.utills.dialog.MessageDialog
 import javax.inject.Inject
 

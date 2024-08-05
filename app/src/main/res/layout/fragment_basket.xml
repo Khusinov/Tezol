@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical"
     android:paddingHorizontal="20.dp"
     tools:context=".presentation.basket.BasketFragment">
@@ -14,39 +15,39 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_no_order"/>
+            android:src="@drawable/image_no_order" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30.dp"
             android:text="Bo'sh"
-            android:textSize="20.dp"
-            android:textColor="#282828"/>
+            android:textColor="#282828"
+            android:textSize="20.dp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8.dp"
-            android:textAlignment="center"
             android:text="Savatingiz hozir bo’sh. Bosh sahifa orqali hoziroq qo’shing."
-            android:textSize="20.dp"
-            android:textColor="#9294A8"/>
+            android:textAlignment="center"
+            android:textColor="#9294A8"
+            android:textSize="20.dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_go_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20.dp"
-            app:cornerRadius="10.dp"
-            android:textColor="@color/black"
             android:text="Bosh sahifa"
-            app:backgroundTint="#FFD92B"/>
+            android:textColor="@color/black"
+            app:backgroundTint="#FFD92B"
+            app:cornerRadius="10.dp" />
 
     </LinearLayout>
 
@@ -67,14 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Savat"
-                android:textSize="20.dp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textSize="20.dp" />
 
             <ImageView
                 android:id="@+id/basket_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_delete"/>
+                android:src="@drawable/ic_delete" />
 
         </LinearLayout>
 

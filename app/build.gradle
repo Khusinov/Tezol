@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -72,6 +73,14 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     implementation ("jp.wasabeef:blurry:4.0.0")
+
+    // picasso
+    implementation(libs.picasso)
+
+    //shimmer
+    implementation(libs.shimmer)
+    implementation libs.anko.sdk15
+
 
 
 

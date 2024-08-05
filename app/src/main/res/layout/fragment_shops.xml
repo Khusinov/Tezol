@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:paddingHorizontal="20.dp"
+    android:paddingHorizontal="16.dp"
     tools:context=".presentation.shops.ShopsFragment">
 
     <androidx.appcompat.widget.SearchView
@@ -14,13 +15,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20.dp"
         android:background="@drawable/search_view_background"
-        app:queryHint="Search"
         android:iconifiedByDefault="false"
+        app:queryHint="Search"
         app:searchIcon="@drawable/ic_search" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShops"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20.dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/shop_item" />
 </LinearLayout>

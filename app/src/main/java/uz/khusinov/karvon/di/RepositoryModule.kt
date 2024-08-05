@@ -5,10 +5,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.data.remote.ApiService
-import uz.khusinov.marjonamarketcourier2.data.repository.AuthRepositoryImpl
+import uz.khusinov.karvon.data.repository.AuthRepositoryImpl
 import uz.khusinov.karvon.data.repository.OrdersRepositoryImpl
+import uz.khusinov.karvon.data.repository.ShopsRepositoryImpl
 import uz.khusinov.karvon.domain.repository.AuthRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
+import uz.khusinov.karvon.domain.repository.ShopsRepository
 import javax.inject.Singleton
 
 @Module
@@ -24,6 +26,12 @@ object RepositoryModule {
     @Singleton
     fun provideOrdersRepository(apiService: ApiService): OrdersRepository {
         return OrdersRepositoryImpl(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideShopsRepository(apiService: ApiService): ShopsRepository {
+        return ShopsRepositoryImpl(apiService)
     }
 //
 //    @Provides
