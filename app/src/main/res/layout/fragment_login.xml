@@ -4,19 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/login_background"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".presentation.login.LoginFragment">
 
+    <ImageView
+        android:layout_width="166dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@null"
+        android:src="@drawable/app_icon_2" />
 
     <ImageView
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="@null"
-        android:src="@drawable/app_logo" />
+        android:src="@drawable/app_name" />
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -27,7 +34,8 @@
         android:fontFamily="@font/lato_bold"
         android:text="@string/login"
         android:textColor="@color/black_text_color"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:visibility="gone" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
@@ -35,8 +43,9 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/lato_regular"
-        android:text="@string/enter_phone_number"
-        android:textColor="@color/black_text_color"
+        android:gravity="center_horizontal"
+        android:text="Ushbu dastur orqali qurilish mahsulotlarini tez va oson sotib oling"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <LinearLayout

@@ -10,7 +10,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.util.Log
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -52,7 +51,6 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         setupProductObserver()
-        Log.d("TAG", "onViewCreated: ttt 585858")
         viewModel.getProducts(1)
     }
 
@@ -132,8 +130,9 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
 
             basketBtn.setOnClickListener {
                 val bundle = Bundle()
-                if (restaurants != null)
+                if (restaurants != null) {
                     bundle.putString("restaurantId", restaurants!!.id.toString())
+                }
                 // bundle.putString("lat", restaurants!!.lat.toString())
                 // bundle.putString("lon", restaurants!!.lon.toString())
 
@@ -150,7 +149,6 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
 
                 rating.text = 5.0f.toString()
             } else
-            //  detailImageView.setImageResource(R.drawable.im_cash3x)
 
                 motionLayout.progress = motionProgress
 
@@ -175,15 +173,12 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
             viewModel.productState.collectLatest {
                 when (it) {
                     is UiStateList.ERROR -> {
-                        Log.d("TAG", "setupProductObserver: error ${it.message} ")
                         showToast(it.message)
                         binding.shimmerView.removeAllViews()
                         binding.recyclerView.setBackgroundResource(R.drawable.shape)
                     }
 
                     UiStateList.LOADING -> {
-                        Log.d("TAG", "setupProductObserver: loading ")
-
                         binding.shimmerView.startShimmer()
                         binding.recyclerView.setBackgroundResource(android.R.color.transparent)
                     }
@@ -193,13 +188,10 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
                         binding.shimmerView.visibility = View.GONE
                         binding.recyclerView.visibility = View.VISIBLE
                         binding.recyclerView.setBackgroundResource(R.drawable.shape)
-                        Log.d("TAG", "setupProductObserver: ${it.data.size} ")
                         adapter.submitList(it.data)
                     }
 
                     else -> {
-                        Log.d("TAG", "setupProductObserver: else ${it.toString()} ")
-
                     }
                 }
             }

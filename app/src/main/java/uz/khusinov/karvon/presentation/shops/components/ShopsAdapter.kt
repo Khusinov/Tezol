@@ -2,13 +2,16 @@ package uz.khusinov.karvon.presentation.shops.components
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import uz.khusinov.karvon.databinding.ShopItemBinding
 import uz.khusinov.karvon.domain.model.shop.Shop
+import uz.khusinov.karvon.utills.Constants
 
 class ShopsAdapter(private val onItemClicked: (shop: Shop) -> Unit) :
     RecyclerView.Adapter<ShopsAdapter.ViewHolder>() {
@@ -29,11 +32,11 @@ class ShopsAdapter(private val onItemClicked: (shop: Shop) -> Unit) :
         @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
         fun setContent(position: Int) = with(binding) {
             val shop = dif.currentList[position]
-//            if (shop.img != null){
-//                Log.d("TAG", "setContent: image is not null ")
-//                Picasso.get().load("${Constants.IMAGE_URL}${shop.img}")
-//                    .into(binding.catalogImage)
-//            } else  Log.d("TAG", "setContent: image is null ")
+            if (shop.img != null) {
+                Log.d("TAG", "setContent: image is not null ")
+                Picasso.get().load("${Constants.IMAGE_URL}${shop.img}")
+                    .into(binding.shopImage)
+            } else Log.d("TAG", "setContent: image is null ")
 
 
             shopItem.setOnClickListener {

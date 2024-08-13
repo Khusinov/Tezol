@@ -35,9 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="90dp"
                 android:background="@drawable/image_gradient" />
-
         </FrameLayout>
-
 
         <LinearLayout
             android:id="@+id/linerAppBar"
@@ -72,7 +70,6 @@
             app:layout_constraintEnd_toEndOf="@id/linerAppBar2"
             app:layout_constraintStart_toStartOf="@id/linerAppBar2"
             app:layout_constraintTop_toTopOf="@id/linerAppBar2">
-
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="28dp"

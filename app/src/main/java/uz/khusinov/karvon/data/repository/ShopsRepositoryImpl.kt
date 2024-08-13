@@ -1,5 +1,6 @@
 package uz.khusinov.karvon.data.repository
 
+import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import uz.khusinov.karvon.data.remote.ApiService
@@ -32,11 +33,14 @@ class ShopsRepositoryImpl(
         try {
             val response = apiService.getShopsProducts(shopId)
             if (response.success) {
+                Log.d("TAG", "getShopsProducts: success ")
                 emit(UiStateList.SUCCESS(response.data))
             } else {
+                Log.d("TAG", "getShopsProducts: error ")
                 emit(UiStateList.ERROR(response.error.message))
             }
         } catch (e: Exception) {
+            Log.d("TAG", "getShopsProducts: catch ${e.message} ")
             emit(UiStateList.ERROR(e.userMessage()))
         }
     }

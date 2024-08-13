@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:paddingHorizontal="20.dp"
     tools:context=".presentation.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -18,19 +17,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView1"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20.dp"
-                android:background="@drawable/search_view_background"
-                android:iconifiedByDefault="false"
-                app:queryHint="Search"
-                app:searchIcon="@drawable/ic_search" />
+                android:background="@color/main_color"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:src="@drawable/tezol" />
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="12.dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/search_view_background"
+                    android:iconifiedByDefault="false"
+                    app:queryHint="Search"
+                    app:searchIcon="@drawable/ic_search" />
+
+            </LinearLayout>
+
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="140.dp"
+                android:layout_marginHorizontal="20.dp"
                 android:layout_marginTop="20.dp"
                 app:cardCornerRadius="12.dp"
                 app:strokeColor="@color/white"
@@ -41,13 +61,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ads" />
+                    android:src="@drawable/ads2" />
 
             </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
@@ -72,14 +93,16 @@
                 android:id="@+id/rvNewProducts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                tools:listitem="@layout/product_item"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/product_item" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
@@ -104,15 +127,17 @@
                 android:id="@+id/topProductsRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                tools:listitem="@layout/product_item"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/product_item" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
@@ -137,10 +162,11 @@
                 android:id="@+id/mostSoldRv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                tools:listitem="@layout/product_item"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/product_item" />
 
 
         </LinearLayout>

@@ -34,7 +34,6 @@ interface ApiService {
     suspend fun getShops(): BaseResponseList<Shop>
 
     @GET("shop/product/{shopId}")
-    @FormUrlEncoded
     suspend fun getShopsProducts(@Path("shopId") shopId: Int): BaseResponseList<Product>
 
     @GET("shop")

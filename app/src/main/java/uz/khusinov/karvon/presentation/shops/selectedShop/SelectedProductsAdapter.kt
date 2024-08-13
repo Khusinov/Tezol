@@ -2,13 +2,16 @@ package uz.khusinov.karvon.presentation.shops.selectedShop
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import uz.khusinov.karvon.databinding.ProductItemBinding
- import uz.khusinov.karvon.domain.model.shop.Product
+import uz.khusinov.karvon.domain.model.shop.Product
+import uz.khusinov.karvon.utills.Constants
 
 class SelectedProductsAdapter(private val onItemClicked: (product: Product) -> Unit) :
     RecyclerView.Adapter<SelectedProductsAdapter.ViewHolder>() {
@@ -34,6 +37,12 @@ class SelectedProductsAdapter(private val onItemClicked: (product: Product) -> U
 //                Picasso.get().load("${Constants.IMAGE_URL}${shop.img}")
 //                    .into(binding.catalogImage)
 //            } else  Log.d("TAG", "setContent: image is null ")
+
+            if (shop.img != null)
+                Picasso.get().load("${Constants.IMAGE_URL}${shop.img}")
+                    .into(binding.image)
+
+            Log.d("TAG", "setContent: ${Constants.IMAGE_URL}${shop.img} ")
 
 
             item.setOnClickListener {

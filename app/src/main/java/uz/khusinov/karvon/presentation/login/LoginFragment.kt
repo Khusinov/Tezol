@@ -64,6 +64,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
                     is UiStateObject.SUCCESS -> {
                         sharedPref.phone = it.data
+                        sharedPref.isEntered = true
                         hideProgress()
                         binding.phone.clearFocus()
                         findNavController().navigate(R.id.action_loginFragment_to_numberConfirmFragment)
