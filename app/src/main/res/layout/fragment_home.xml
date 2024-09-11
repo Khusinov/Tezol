@@ -25,31 +25,61 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:layout_marginHorizontal="20dp"
                     android:src="@drawable/tezol" />
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/searchView1"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="12.dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/search_view_background"
-                    android:iconifiedByDefault="false"
-                    app:queryHint="Search"
-                    app:searchIcon="@drawable/ic_search" />
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="4dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginVertical="8dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_search" />
+
+                        <EditText
+                            android:id="@+id/search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:hint="@string/search"
+                            android:textColorHint="@color/black_text_color"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
 
             </LinearLayout>
 
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="140.dp"
+                android:layout_height="140dp"
                 android:layout_marginHorizontal="20.dp"
                 android:layout_marginTop="20.dp"
                 app:cardCornerRadius="12.dp"

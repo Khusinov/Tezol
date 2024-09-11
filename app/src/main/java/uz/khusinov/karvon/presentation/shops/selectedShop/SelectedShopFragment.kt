@@ -8,7 +8,6 @@ import uz.khusinov.karvon.presentation.BaseFragment
 import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.util.Log
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -146,8 +145,6 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
                 if (restaurants!!.img != null)
                     Picasso.get().load(restaurants?.img).into(detailImageView)
                 tvName.text = restaurants!!.name
-
-                rating.text = 5.0f.toString()
             } else
 
                 motionLayout.progress = motionProgress
