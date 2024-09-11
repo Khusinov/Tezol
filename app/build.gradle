@@ -81,6 +81,9 @@ dependencies {
     implementation(libs.shimmer)
     implementation libs.anko.sdk15
 
+    implementation("androidx.room:room-ktx:2.6.1")
+
+
 
 
 
