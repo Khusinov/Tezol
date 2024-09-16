@@ -21,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import uz.khusinov.karvon.domain.model.shop.Product
 import uz.khusinov.karvon.domain.model.shop.Shop
+import uz.khusinov.karvon.presentation.basket.BasketViewModel
 import uz.khusinov.karvon.presentation.shops.ShopsViewModel
 import uz.khusinov.marjonamarketcourier2.utills.UiStateList
 import uz.khusinov.marjonamarketcourier2.utills.launchAndRepeatWithViewLifecycle
@@ -31,6 +32,7 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
     private val binding by viewBinding { FragmentSelectedShopBinding.bind(it) }
     var restaurants: Shop? = null
     private val viewModel by activityViewModels<ShopsViewModel>()
+    private val basketViewModel by activityViewModels<BasketViewModel>()
     private val adapter by lazy {
         SelectedProductsAdapter(this::onItemClick)
     }
@@ -245,23 +247,23 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
 //        binding.motionLayout.progress = 1f
 //    }
 
-//    private fun addToBasket(product: Product, count: Int = 1) {
-//        if (viewModel.restaurant?.id != restaurants?.id && viewModel.basket.value.isNotEmpty()) {
-//            val dialog = EatsConfirmDialog(
-//                title = getString(R.string.clear_basket),
-//                message = getString(R.string.clear_basket_msg),
-//                action = Action(getString(R.string.yes), true) {
-//                    viewModel.clearBasket(restaurants!!)
-//                    viewModel.addProductToBasket(product)
-//                },
-//                secondAction = Action(getString(R.string.no), false) {}
-//            )
-//            dialog.show(parentFragmentManager, null)
-//        } else {
-//            viewModel.restaurant = restaurants!!
-//            viewModel.addProductToBasket(product, count)
-//        }
-//    }
+    private fun addToBasket(product: Product, count: Int = 1) {
+        if (viewModel.restaurant?.id != restaurants?.id && viewModel.basket.value.isNotEmpty()) {
+            val dialog = EatsConfirmDialog(
+                title = getString(R.string.clear_basket),
+                message = getString(R.string.clear_basket_msg),
+                action = Action(getString(R.string.yes), true) {
+                    viewModel.clearBasket(restaurants!!)
+                    viewModel.addProductToBasket(product)
+                },
+                secondAction = Action(getString(R.string.no), false) {}
+            )
+            dialog.show(parentFragmentManager, null)
+        } else {
+            viewModel.restaurant = restaurants!!
+            viewModel.addProductToBasket(product, count)
+        }
+    }
 
     override fun onPause() {
         super.onPause()

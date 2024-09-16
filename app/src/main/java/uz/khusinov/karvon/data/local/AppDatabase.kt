@@ -5,7 +5,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import uz.khusinov.karvon.domain.model.shop.Product
 import uz.khusinov.marjonamarket.data.local.Convertors
-import uz.khusinov.marjonamarket.data.local.ProductsDao
 
 
 @Database(

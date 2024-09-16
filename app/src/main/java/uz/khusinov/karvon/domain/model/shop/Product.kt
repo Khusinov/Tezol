@@ -1,10 +1,12 @@
 package uz.khusinov.karvon.domain.model.shop
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
+@Entity("product")
 data class Product(
     val category_id: Int,
     val code: String?,
