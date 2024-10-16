@@ -19,7 +19,7 @@ class LoginViewModel @Inject constructor(
     private val authUseCases: AuthUseCases
 ) : ViewModel() {
 
-    private val _loginState = MutableSharedFlow<UiStateObject<String>>()
+    private val _loginState = MutableSharedFlow<UiStateObject<Unit>>()
     val loginState = _loginState
 
     private val _confirmState = MutableStateFlow<UiStateObject<ConfirmResponse>>(UiStateObject.EMPTY)

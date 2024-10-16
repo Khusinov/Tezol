@@ -15,7 +15,7 @@ class AuthRepositoryImpl(
     private val apiService: ApiService,
 ) : AuthRepository {
 
-    override fun login(loginRequest: LoginRequest): Flow<UiStateObject<String>> = flow {
+    override fun login(loginRequest: LoginRequest): Flow<UiStateObject<Unit>> = flow {
         emit(UiStateObject.LOADING)
         try {
 

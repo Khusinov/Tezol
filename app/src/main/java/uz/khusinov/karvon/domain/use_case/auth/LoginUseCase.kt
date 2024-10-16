@@ -9,7 +9,7 @@ class LoginUseCase(
     private val repository: AuthRepository
 ) {
 
-    operator fun invoke(loginRequest: LoginRequest): Flow<UiStateObject<String>> {
+    operator fun invoke(loginRequest: LoginRequest): Flow<UiStateObject<Unit>> {
         /*if (phoneNumber.length != 12){
             return flow {
 

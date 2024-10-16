@@ -20,13 +20,12 @@ import uz.khusinov.karvon.domain.model.shop.Shop
 interface ApiService {
 
     @POST("auth/send-sms/")
-    suspend fun login(@Body phone: LoginRequest): BaseResponseObject<String>
+    suspend fun login(@Body phone: LoginRequest): BaseResponseObject<Unit>
 
     @POST("auth/verify-sms/")
     suspend fun confirm(
         @Body confirmRequest: ConfirmRequest
     ): BaseResponseObject<ConfirmResponse>
-
 
     @GET("shop")
     suspend fun getShops(): BaseResponseList<Shop>
