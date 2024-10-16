@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.khusinov.karvon.domain.model.ConfirmRequest
 import uz.khusinov.karvon.domain.model.ConfirmResponse
+import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.marjonamarketcourier2.utills.UiStateObject
 import javax.inject.Inject
 
@@ -24,8 +25,8 @@ class LoginViewModel @Inject constructor(
     private val _confirmState = MutableStateFlow<UiStateObject<ConfirmResponse>>(UiStateObject.EMPTY)
     val confirmState = _confirmState
 
-    fun login(phone: String) {
-        authUseCases.loginUseCase.invoke(phone).onEach { result ->
+    fun login(loginRequest: LoginRequest) {
+        authUseCases.loginUseCase.invoke(loginRequest).onEach { result ->
 
             when (result) {
                 is UiStateObject.LOADING -> _loginState.emit(UiStateObject.LOADING)

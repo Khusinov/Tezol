@@ -56,6 +56,9 @@ class ShopsViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
+    var shop: Shop? = null
+
+
 
 
 

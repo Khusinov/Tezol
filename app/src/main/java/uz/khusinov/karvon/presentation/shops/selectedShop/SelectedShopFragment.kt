@@ -23,6 +23,8 @@ import uz.khusinov.karvon.domain.model.shop.Product
 import uz.khusinov.karvon.domain.model.shop.Shop
 import uz.khusinov.karvon.presentation.basket.BasketViewModel
 import uz.khusinov.karvon.presentation.shops.ShopsViewModel
+import uz.khusinov.karvon.presentation.shops.components.Action
+import uz.khusinov.karvon.presentation.shops.components.ShopsConfirmDialog
 import uz.khusinov.marjonamarketcourier2.utills.UiStateList
 import uz.khusinov.marjonamarketcourier2.utills.launchAndRepeatWithViewLifecycle
 
@@ -235,7 +237,7 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
         bundle.putInt("restaurantId", restaurants!!.id)
         dialog.arguments = bundle
         dialog.onAddToBasket = { count ->
-            // addToBasket(product, count)
+             addToBasket(product, count)
         }
         dialog.show(parentFragmentManager, null)
     }
@@ -248,20 +250,20 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
 //    }
 
     private fun addToBasket(product: Product, count: Int = 1) {
-        if (viewModel.restaurant?.id != restaurants?.id && viewModel.basket.value.isNotEmpty()) {
-            val dialog = EatsConfirmDialog(
+        if (basketViewModel.shop?.id != restaurants?.id && basketViewModel.basket.value.isNotEmpty()) {
+            val dialog = ShopsConfirmDialog(
                 title = getString(R.string.clear_basket),
                 message = getString(R.string.clear_basket_msg),
                 action = Action(getString(R.string.yes), true) {
-                    viewModel.clearBasket(restaurants!!)
-                    viewModel.addProductToBasket(product)
+                   // viewModel.clearBasket(restaurants!!)
+                   // viewModel.addProductToBasket(product)
                 },
                 secondAction = Action(getString(R.string.no), false) {}
             )
             dialog.show(parentFragmentManager, null)
         } else {
-            viewModel.restaurant = restaurants!!
-            viewModel.addProductToBasket(product, count)
+//            viewModel.restaurant = restaurants!!
+//            viewModel.addProductToBasket(product, count)
         }
     }
 

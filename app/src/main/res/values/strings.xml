@@ -26,6 +26,11 @@
     <string name="top_maxsulotlar">Top maxsulotlar</string>
     <string name="most_sold">Eng ko\'p sotilgan</string>
     <string name="search">Qidirish</string>
+    <string name="clear_basket">Savatni tozalash</string>
+    <string name="clear_basket_msg">Savatni tozalashni xoxlisizmi?</string>
+    <string name="yes">Xa</string>
+    <string name="no">Yo\'q</string>
+
 
 
 </resources>

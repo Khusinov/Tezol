@@ -5,10 +5,14 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import uz.khusinov.karvon.domain.model.SelectedProduct
 import uz.khusinov.karvon.domain.model.shop.Product
+import uz.khusinov.karvon.domain.model.shop.Shop
 import uz.khusinov.karvon.domain.use_case.products.ProductsUseCases
 import uz.khusinov.marjonamarketcourier2.utills.UiStateList
 import javax.inject.Inject
@@ -58,6 +62,17 @@ class BasketViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+
+    private val _basket = MutableStateFlow<List<SelectedProduct>>(emptyList())
+    val basket: StateFlow<List<SelectedProduct>> = _basket.asStateFlow()
+    var shop: Shop? = null
+
+
+    fun clearBasket(shop: Shop? = null) {
+        _basket.value = emptyList()
+        this.shop = shop
     }
 
 }

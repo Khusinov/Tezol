@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.khusinov.karvon.R
 import uz.khusinov.karvon.SharedPref
 import uz.khusinov.karvon.databinding.FragmentLoginBinding
+import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.karvon.presentation.BaseFragment
 import uz.khusinov.marjonamarketcourier2.utills.UiStateObject
 import uz.khusinov.marjonamarketcourier2.utills.launchAndRepeatWithViewLifecycle
@@ -43,10 +44,12 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
                 phone = phoneNumber.substring(5, phoneNumber.lastIndex + 1)
 
+                sharedPref.phone = "+998$phone"
 
                 Log.d("TAG", "setupUI: $phone ")
                 if (phone.length == 9) {
-                    viewModel.login(phone)
+                    val loginRequest = LoginRequest("+998" + phone)
+                    viewModel.login(loginRequest)
                 }
             }
         }
@@ -63,8 +66,6 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
                     }
 
                     is UiStateObject.SUCCESS -> {
-                        sharedPref.phone = it.data
-                        sharedPref.isEntered = true
                         hideProgress()
                         binding.phone.clearFocus()
                         findNavController().navigate(R.id.action_loginFragment_to_numberConfirmFragment)

@@ -41,8 +41,8 @@ object AppModule {
         connectTimeout(1, TimeUnit.SECONDS)
         addInterceptor(Interceptor { chain ->
             val builder = chain.request().newBuilder()
-            if (sharedPref.token != "") {
-                builder.header("token", sharedPref.token)
+            if (sharedPref.access != "") {
+                builder.header("token", sharedPref.access)
             }
             chain.proceed(builder.build())
         }).build()
@@ -78,8 +78,8 @@ object AppModule {
         addInterceptor(Interceptor { chain ->
             val builder = chain.request().newBuilder()
 
-            if (sharedPref.token != "") {
-                builder.header("Authorization", "Bearer ${sharedPref.token}")
+            if (sharedPref.access != "") {
+                builder.header("Authorization", "Bearer ${sharedPref.access}")
             }
             builder.header("Accept", "application/json")
             chain.proceed(builder.build())

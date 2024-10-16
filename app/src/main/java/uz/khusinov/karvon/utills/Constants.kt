@@ -1,7 +1,7 @@
 package uz.khusinov.karvon.utills
 
 object Constants {
-    const val BASE_URL = "http://tezol.amusoft.uz/api/"
+    const val BASE_URL = "https://api.tezoll.uz/api/v1/"
     const val IMAGE_URL = "http://tezol.amusoft.uz/storage/galereya/"
 
     const val NEW_ORDER = "newOrder"

@@ -46,7 +46,7 @@ class NumberConfirmFragment : BaseFragment(R.layout.fragment_number_confirm) {
         binding.apply {
 
             confirmButton.setOnClickListener {
-                if (otpView.text.toString().length == 4) {
+                if (otpView.text.toString().length == 5) {
                     val confirmRequest = ConfirmRequest(otpView.text.toString(), sharedPref.phone)
                     viewModel.confirm(confirmRequest)
                     secondJob?.cancel()
@@ -54,7 +54,7 @@ class NumberConfirmFragment : BaseFragment(R.layout.fragment_number_confirm) {
             }
 
             otpView.setOtpCompletionListener { value ->
-                if (value.length == 4 && sec > 0) {
+                if (value.length == 5 && sec > 0) {
                     val confirmRequest = ConfirmRequest(otpView.text.toString(), sharedPref.phone)
                     viewModel.confirm(confirmRequest)
                     secondJob?.cancel()
@@ -96,8 +96,7 @@ class NumberConfirmFragment : BaseFragment(R.layout.fragment_number_confirm) {
                         hideProgress()
                         binding.otpView.clearFocus()
                         sharedPref.isEntered = true
-                        sharedPref.token = it.data.token
-                        sharedPref.userId = it.data.user_id.toString()
+                        sharedPref.access = it.data.access
                         findNavController().navigate(R.id.action_numberConfirmFragment_to_introduction1Fragment)
 
                     }

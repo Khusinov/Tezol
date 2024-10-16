@@ -6,6 +6,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import uz.khusinov.karvon.domain.model.ConfirmRequest
 import uz.khusinov.karvon.domain.model.ConfirmResponse
 import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.karvon.domain.model.LoginResponse
@@ -18,15 +19,12 @@ import uz.khusinov.karvon.domain.model.shop.Shop
 
 interface ApiService {
 
-    @POST("reg")
-    @FormUrlEncoded
-    suspend fun login(@Field("phone") phone: String): BaseResponseObject<String>
+    @POST("auth/send-sms/")
+    suspend fun login(@Body phone: LoginRequest): BaseResponseObject<String>
 
-    @POST("check-sms/{phone}")
-    @FormUrlEncoded
+    @POST("auth/verify-sms/")
     suspend fun confirm(
-        @Field("verify_code") verify_code: String,
-        @Path("phone") phone: String
+        @Body confirmRequest: ConfirmRequest
     ): BaseResponseObject<ConfirmResponse>
 
 
@@ -38,10 +36,6 @@ interface ApiService {
 
     @GET("shop")
     suspend fun getOrders(): BaseResponseList<Order>
-
-
-
-
 
 
 //    @GET("http://router.project-osrm.org/route/v1/driving/{points}?steps=true")

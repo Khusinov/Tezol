@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.flow
 import uz.khusinov.karvon.data.remote.ApiService
 import uz.khusinov.karvon.domain.model.ConfirmRequest
 import uz.khusinov.karvon.domain.model.ConfirmResponse
+import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.karvon.domain.repository.AuthRepository
 import uz.khusinov.marjonamarketcourier2.utills.UiStateObject
 import uz.khusinov.marjonamarketcourier2.utills.userMessage
@@ -14,10 +15,11 @@ class AuthRepositoryImpl(
     private val apiService: ApiService,
 ) : AuthRepository {
 
-    override fun login(phone: String): Flow<UiStateObject<String>> = flow {
+    override fun login(loginRequest: LoginRequest): Flow<UiStateObject<String>> = flow {
         emit(UiStateObject.LOADING)
         try {
-            val response = apiService.login(phone)
+
+            val response = apiService.login(loginRequest)
             if (response.success) {
                 Log.d("TAG", "login: impl $response ")
                 emit(UiStateObject.SUCCESS(response.data))
@@ -32,7 +34,7 @@ class AuthRepositoryImpl(
         flow {
             emit(UiStateObject.LOADING)
             try {
-                val response = apiService.confirm(confirmRequest.verify_code, confirmRequest.phone)
+                val response = apiService.confirm(confirmRequest)
                 if (response.success) {
                     emit(UiStateObject.SUCCESS(response.data))
                 } else {

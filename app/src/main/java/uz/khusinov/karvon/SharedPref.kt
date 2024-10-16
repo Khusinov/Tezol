@@ -27,10 +27,15 @@ class SharedPref @Inject constructor(context: Context) {
         get() = mySharedPref.getString("mode", "auto")!!
         set(value) = mySharedPref.edit().putString("mode", value).apply()
 
-    var token: String
-        get() = mySharedPref.getString("token", "")!!
+    var access: String
+        get() = mySharedPref.getString("access", "")!!
         set(value) {
-            mySharedPref.edit().putString("token", value).apply()
+            mySharedPref.edit().putString("access", value).apply()
+        }
+    var refresh: String
+        get() = mySharedPref.getString("refresh", "")!!
+        set(value) {
+            mySharedPref.edit().putString("refresh", value).apply()
         }
 
     var isEntered: Boolean

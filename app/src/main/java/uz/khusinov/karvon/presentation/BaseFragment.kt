@@ -37,7 +37,7 @@ abstract class BaseFragment(private val layoutRes: Int) : Fragment() {
         dialog.onClickListener = {
             dialog.dismiss()
             if (message == ERROR_401) {
-                appPref.token = ""
+                appPref.access = ""
                 openLogin()
             }
         }

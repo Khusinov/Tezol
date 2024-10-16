@@ -54,7 +54,7 @@
         android:textAllCaps="true"
         android:textColor="@color/black_text_color"
         app:OtpHideLineWhenFilled="true"
-        app:OtpItemCount="4"
+        app:OtpItemCount="5"
         app:OtpItemHeight="64dp"
         app:OtpItemRadius="16dp"
         app:OtpItemSpacing="12dp"
