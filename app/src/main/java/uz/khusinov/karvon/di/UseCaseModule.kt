@@ -5,12 +5,15 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.domain.repository.AuthRepository
+import uz.khusinov.karvon.domain.repository.CategoryRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
 import uz.khusinov.karvon.domain.repository.ProductsRepository
 import uz.khusinov.karvon.domain.repository.ShopsRepository
 import uz.khusinov.karvon.domain.use_case.auth.AuthUseCases
 import uz.khusinov.karvon.domain.use_case.auth.ConfirmUseCase
 import uz.khusinov.karvon.domain.use_case.auth.LoginUseCase
+import uz.khusinov.karvon.domain.use_case.category.CategoryUseCases
+import uz.khusinov.karvon.domain.use_case.category.GetCategoryUseCase
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
 import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCase
 import uz.khusinov.karvon.domain.use_case.orders.OrdersUseCases
@@ -65,6 +68,14 @@ object UseCaseModule {
             removeProductUseCase = RemoveProductUseCase(repository),
             updateProductUseCase = UpdateProductUseCase(repository),
             deleteAllProductUseCase = DeleteAllProductUseCase(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategorysUseCase(repository: CategoryRepository): CategoryUseCases {
+        return CategoryUseCases(
+            getCategoryUseCase = GetCategoryUseCase(repository)
         )
     }
 

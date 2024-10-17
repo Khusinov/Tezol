@@ -11,6 +11,7 @@ import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.karvon.domain.model.Order
 import uz.khusinov.karvon.domain.model.base.BaseResponseList
 import uz.khusinov.karvon.domain.model.base.BaseResponseObject
+import uz.khusinov.karvon.domain.model.shop.CategoryRespons
 import uz.khusinov.karvon.domain.model.shop.Categorys
 import uz.khusinov.karvon.domain.model.shop.Product
 import uz.khusinov.karvon.domain.model.shop.Shop
@@ -36,7 +37,12 @@ interface ApiService {
     suspend fun getOrders(): BaseResponseList<Order>
 
     @GET("category")
-    suspend fun getCategory(@Query("page") page: Int, @Query("page_size") pageSize: Int = 20): BaseResponseObject<Categorys>
+    suspend fun getCategorys(@Query("page") page: Int, @Query("page_size") pageSize: Int = 20): BaseResponseObject<Categorys>
+
+    @GET("category/{id}")
+    suspend fun getCategory(
+        @Path("id") id: Int
+    ): BaseResponseObject<CategoryRespons>
 
 //    @GET("http://router.project-osrm.org/route/v1/driving/{points}?steps=true")
 //    suspend fun getRoute(

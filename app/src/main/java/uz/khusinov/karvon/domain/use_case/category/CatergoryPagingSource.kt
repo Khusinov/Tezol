@@ -23,7 +23,7 @@ class CatergoryPagingSource(
             val nextPage = params.key ?: 1
 
             // API chaqiruvni amalga oshirish
-            val response = apiService.getCategory(page = nextPage)
+            val response = apiService.getCategorys(page = nextPage)
 
             // Agar response null bo'lsa, LoadResult.Error qaytarish
             if (response == null || response.data.results.isEmpty()) {

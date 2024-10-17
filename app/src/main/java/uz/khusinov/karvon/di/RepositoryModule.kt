@@ -7,10 +7,12 @@ import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.data.local.ProductsDao
 import uz.khusinov.karvon.data.remote.ApiService
 import uz.khusinov.karvon.data.repository.AuthRepositoryImpl
+import uz.khusinov.karvon.data.repository.CategoryRepositoryImpl
 import uz.khusinov.karvon.data.repository.OrdersRepositoryImpl
 import uz.khusinov.karvon.data.repository.ProductsRepositoryImpl
 import uz.khusinov.karvon.data.repository.ShopsRepositoryImpl
 import uz.khusinov.karvon.domain.repository.AuthRepository
+import uz.khusinov.karvon.domain.repository.CategoryRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
 import uz.khusinov.karvon.domain.repository.ProductsRepository
 import uz.khusinov.karvon.domain.repository.ShopsRepository
@@ -43,6 +45,11 @@ object RepositoryModule {
         return ProductsRepositoryImpl(productsDao)
     }
 
+    @Provides
+    @Singleton
+    fun provideCategorysRepository(apiService: ApiService): CategoryRepository {
+        return CategoryRepositoryImpl(apiService)
+    }
 
 //
 //    @Provides
