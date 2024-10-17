@@ -26,6 +26,7 @@ swiperefreshlayout = "1.1.0"
 playServicesLocation = "21.3.0"
 navigationFragmentKtxVersion = "2.7.7"
 navigationUiKtxVersion = "2.7.7"
+pagingCommonAndroid = "3.3.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +53,7 @@ maskededittext = { module = "io.github.vicmikhailau:MaskedEditText", version.ref
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
 
 
 [plugins]
