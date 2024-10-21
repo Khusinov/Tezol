@@ -86,7 +86,7 @@
             android:paddingHorizontal="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/linerAppBar2"
-            tools:listitem="@layout/item_category" />
+            tools:listitem="@layout/item_catolog" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_view"
