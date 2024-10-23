@@ -10,6 +10,7 @@
     <color name="red">#FF0000</color>
     <color name="search_background">#EEEEEE</color>
     <color name="product_bg">#F3F5F6</color>
+    <color name="black_24">#3D000000</color>
 
 
 </resources>

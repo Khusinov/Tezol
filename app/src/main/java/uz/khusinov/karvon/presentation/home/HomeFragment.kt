@@ -1,60 +1,88 @@
 package uz.khusinov.karvon.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import dagger.hilt.android.AndroidEntryPoint
 import uz.khusinov.karvon.R
+import uz.khusinov.karvon.databinding.FragmentHomeBinding
+import uz.khusinov.karvon.presentation.BaseFragment
+import uz.khusinov.karvon.presentation.home.components.AdsAdapter
+import uz.khusinov.marjonamarketcourier2.utills.UiStateObject
+import uz.khusinov.marjonamarketcourier2.utills.launchAndRepeatWithViewLifecycle
+import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@AndroidEntryPoint
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
+    private val binding by viewBinding { FragmentHomeBinding.bind(it) }
+    private val homeViewModel by viewModels<HomeViewModel>()
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var adsAdapter: AdsAdapter
+    private var pagerList: ArrayList<String> = ArrayList()
+    var adsCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        homeViewModel.getAds()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupUI()
+        setupAdsObserver()
+    }
+
+    private fun setupAdsObserver() {
+        launchAndRepeatWithViewLifecycle {
+            homeViewModel.getAdsState.collect {
+                when (it) {
+                    is UiStateObject.LOADING -> showProgress()
+
+                    is UiStateObject.SUCCESS -> {
+                        hideProgress()
+                        pagerList.clear()
+                        pagerList.addAll(it.data.results)
+                        setAds()
+                    }
+
+                    is UiStateObject.ERROR -> {
+                        hideProgress()
+                        showToast(it.message)
+                    }
+
+                    else -> Unit
+                }
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private fun setupUI() = with(binding) {
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun setAds() = with(binding) {
+        adsAdapter = AdsAdapter(requireContext(), pagerList)
+        viewPager.adapter = adsAdapter
+        viewPager.offscreenPageLimit = pagerList.size
+        dotsIndicator.attachTo(viewPager)
+        changeFlatImage()
+    }
+
+    private fun changeFlatImage() {
+        adsCount++
+        if (adsCount >= pagerList.size)
+            adsCount = 0
+        object : CountDownTimer(3000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+            override fun onFinish() {
+                if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                    binding.viewPager.currentItem = adsCount
+                    changeFlatImage()
                 }
             }
+        }.start()
     }
 }

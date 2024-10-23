@@ -5,6 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
+import uz.khusinov.karvon.domain.model.AdsResponse
 import uz.khusinov.karvon.domain.model.ConfirmRequest
 import uz.khusinov.karvon.domain.model.ConfirmResponse
 import uz.khusinov.karvon.domain.model.LoginRequest
@@ -37,12 +38,15 @@ interface ApiService {
     suspend fun getOrders(): BaseResponseList<Order>
 
     @GET("category")
-    suspend fun getCategorys(@Query("page") page: Int, @Query("page_size") pageSize: Int = 20): BaseResponseObject<Categorys>
+    suspend fun getCategories(@Query("page") page: Int, @Query("page_size") pageSize: Int = 20): BaseResponseObject<Categorys>
 
     @GET("category/{id}")
     suspend fun getCategory(
         @Path("id") id: Int
     ): BaseResponseObject<CategoryRespons>
+
+    @GET("ads")
+    suspend fun getAds(): BaseResponseObject<AdsResponse>
 
 //    @GET("http://router.project-osrm.org/route/v1/driving/{points}?steps=true")
 //    suspend fun getRoute(

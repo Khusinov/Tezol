@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.khusinov.karvon.domain.repository.AuthRepository
 import uz.khusinov.karvon.domain.repository.CategoryRepository
+import uz.khusinov.karvon.domain.repository.HomeRepository
 import uz.khusinov.karvon.domain.repository.OrdersRepository
 import uz.khusinov.karvon.domain.repository.ProductsRepository
 import uz.khusinov.karvon.domain.repository.ShopsRepository
@@ -14,6 +15,8 @@ import uz.khusinov.karvon.domain.use_case.auth.ConfirmUseCase
 import uz.khusinov.karvon.domain.use_case.auth.LoginUseCase
 import uz.khusinov.karvon.domain.use_case.category.CategoryUseCases
 import uz.khusinov.karvon.domain.use_case.category.GetCategoryUseCase
+import uz.khusinov.karvon.domain.use_case.home.GetAdsUseCase
+import uz.khusinov.karvon.domain.use_case.home.HomeUseCases
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
 import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCase
 import uz.khusinov.karvon.domain.use_case.orders.OrdersUseCases
@@ -76,6 +79,14 @@ object UseCaseModule {
     fun provideCategorysUseCase(repository: CategoryRepository): CategoryUseCases {
         return CategoryUseCases(
             getCategoryUseCase = GetCategoryUseCase(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideHomeUseCase(repository: HomeRepository): HomeUseCases {
+        return HomeUseCases(
+            getAdsUseCase = GetAdsUseCase(repository)
         )
     }
 

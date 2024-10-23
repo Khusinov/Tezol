@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
-import org.jetbrains.anko.withAlpha
+//import org.jetbrains.anko.withAlpha
 import uz.khusinov.karvon.R
 
 class CurvedCustomView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
@@ -17,7 +17,7 @@ class CurvedCustomView(context: Context, attributeSet: AttributeSet) : View(cont
     }
     private val shadowPaint = Paint().apply {
         color = resources.getColor(R.color.white)
-        setShadowLayer(32f, 0f, 0f, Color.BLACK.withAlpha(16))
+//        setShadowLayer(32f, 0f, 0f, Color.BLACK.withAlpha(16))
     }
 
     override fun onDraw(canvas: Canvas) {

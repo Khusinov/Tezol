@@ -1,6 +1,5 @@
 [versions]
 agp = "8.4.0"
-ankoSdk15 = "0.8.2"
 googleServices = "4.4.0"
 gradle = "3.4.0"
 gson = "2.10.1"
@@ -27,10 +26,10 @@ playServicesLocation = "21.3.0"
 navigationFragmentKtxVersion = "2.7.7"
 navigationUiKtxVersion = "2.7.7"
 pagingCommonAndroid = "3.3.2"
+indicator = "5.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-anko-sdk15 = { module = "org.jetbrains.anko:anko-sdk15", version.ref = "ankoSdk15" }
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroid" }
@@ -54,6 +53,7 @@ androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navi
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 androidx-paging-common-android = { group = "androidx.paging", name = "paging-common-android", version.ref = "pagingCommonAndroid" }
+dots-indicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "indicator"}
 
 
 [plugins]

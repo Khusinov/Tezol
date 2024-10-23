@@ -80,9 +80,11 @@ dependencies {
 
     //shimmer
     implementation(libs.shimmer)
-    implementation libs.anko.sdk15
 
     implementation("androidx.room:room-ktx:2.6.1")
+
+    //dotsIndicator
+    implementation(libs.dots.indicator)
 
 
 
