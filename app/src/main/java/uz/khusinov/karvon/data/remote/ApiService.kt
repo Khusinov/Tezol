@@ -17,6 +17,7 @@ import uz.khusinov.karvon.domain.model.shop.CategoryRespons
 import uz.khusinov.karvon.domain.model.shop.Categorys
 import uz.khusinov.karvon.domain.model.shop.Product
 import uz.khusinov.karvon.domain.model.shop.Shop
+import uz.khusinov.karvon.domain.model.shop.Shops
 
 
 interface ApiService {
@@ -29,8 +30,9 @@ interface ApiService {
         @Body confirmRequest: ConfirmRequest
     ): BaseResponseObject<ConfirmResponse>
 
+
     @GET("shop/")
-    suspend fun getShops(): BaseResponseList<Shop>
+    suspend fun getShops(@Query("page") page: Int, @Query("page_size") pageSize: Int = 20): BaseResponseObject<Shops>
 
     @GET("shop/product/{shopId}")
     suspend fun getShopsProducts(@Path("shopId") shopId: Int): BaseResponseList<Product>

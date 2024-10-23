@@ -146,8 +146,8 @@ class SelectedShopFragment : BaseFragment(R.layout.fragment_selected_shop) {
             }
 
             if (restaurants != null) {
-                if (restaurants!!.img != null)
-                    Picasso.get().load(restaurants?.img).into(detailImageView)
+                if (restaurants!!.image != null)
+                    Picasso.get().load(restaurants?.image).into(detailImageView)
                 tvName.text = restaurants!!.name
             } else
 
