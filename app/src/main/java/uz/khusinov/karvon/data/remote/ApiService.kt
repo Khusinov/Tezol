@@ -27,7 +27,7 @@ interface ApiService {
         @Body confirmRequest: ConfirmRequest
     ): BaseResponseObject<ConfirmResponse>
 
-    @GET("shop")
+    @GET("shop/")
     suspend fun getShops(): BaseResponseList<Shop>
 
     @GET("shop/product/{shopId}")
