@@ -23,5 +23,4 @@
         android:contentDescription="@null"
         android:src="@drawable/app_name" />
 
-
 </LinearLayout>

@@ -18,7 +18,6 @@ import uz.khusinov.karvon.domain.use_case.category.GetCategoryUseCase
 import uz.khusinov.karvon.domain.use_case.home.GetAdsUseCase
 import uz.khusinov.karvon.domain.use_case.home.HomeUseCases
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
-import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCase
 import uz.khusinov.karvon.domain.use_case.orders.OrdersUseCases
 import uz.khusinov.karvon.domain.use_case.products.DeleteAllProductUseCase
 import uz.khusinov.karvon.domain.use_case.products.InsertProductUseCase
@@ -54,8 +53,7 @@ object UseCaseModule {
     @Singleton
     fun provideShopsUseCase(repository: ShopsRepository): ShopsUseCases {
         return ShopsUseCases(
-            getShopsUseCase = ShopsUseCase(repository),
-            getProductsUseCase = GetProductsUseCase(repository)
+             getProductsUseCase = GetProductsUseCase(repository)
         )
     }
 

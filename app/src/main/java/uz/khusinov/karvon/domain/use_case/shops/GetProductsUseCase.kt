@@ -10,7 +10,6 @@ class GetProductsUseCase(
     private val repository: ShopsRepository
 ) {
     operator fun invoke(shopId: Int): Flow<UiStateList<Product>> {
-        Log.d("TAG", "invoke: use case  $shopId ")
         return repository.getShopsProducts(shopId)
     }
 }

@@ -5,20 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Shop(
-    val address_name: String,
-    val balans: String?,
-    val close_time: String,
-    val created_at: String,
-    val deleted_at: String?,
+    val closed_at: String,
     val id: Int,
-    val img: String?,
-    val info: String?,
-    val inn: String,
-    val lang: String?,
-    val lat: String?,
+    val image: String,
+    val lat: Double,
+    val lon: Double,
     val name: String,
-    val open_time: String,
-    val phone: String,
-    val status: String?,
-    val updated_at: String
+    val opened_at: String,
+    val phone_number: String
 ) : Parcelable

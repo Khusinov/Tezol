@@ -5,28 +5,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import uz.khusinov.karvon.data.remote.ApiService
 import uz.khusinov.karvon.domain.model.shop.Product
-import uz.khusinov.karvon.domain.model.shop.Shop
+import uz.khusinov.karvon.domain.model.shop.Shops
 import uz.khusinov.karvon.domain.repository.ShopsRepository
 import uz.khusinov.marjonamarketcourier2.utills.UiStateList
+import uz.khusinov.marjonamarketcourier2.utills.UiStateObject
 import uz.khusinov.marjonamarketcourier2.utills.userMessage
 
 class ShopsRepositoryImpl(
     private val apiService: ApiService
 ) : ShopsRepository {
-
-    override fun getShops(): Flow<UiStateList<Shop>> = flow {
-        emit(UiStateList.LOADING)
-        try {
-            val response = apiService.getShops()
-            if (response.success) {
-                emit(UiStateList.SUCCESS(response.data))
-            } else {
-                emit(UiStateList.ERROR(response.error.message))
-            }
-        } catch (e: Exception) {
-            emit(UiStateList.ERROR(e.userMessage()))
-        }
-    }
 
     override fun getShopsProducts(shopId: Int): Flow<UiStateList<Product>> = flow {
         emit(UiStateList.LOADING)

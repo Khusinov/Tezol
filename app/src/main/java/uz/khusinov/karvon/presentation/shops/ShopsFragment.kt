@@ -4,27 +4,24 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import kotlinx.coroutines.flow.collectLatest
 import uz.khusinov.karvon.R
 import uz.khusinov.karvon.databinding.FragmentShopsBinding
 import uz.khusinov.karvon.domain.model.shop.Shop
 import uz.khusinov.karvon.presentation.BaseFragment
 import uz.khusinov.karvon.presentation.shops.components.ShopsAdapter
-import uz.khusinov.marjonamarketcourier2.utills.UiStateList
 import uz.khusinov.marjonamarketcourier2.utills.launchAndRepeatWithViewLifecycle
 import uz.khusinov.marjonamarketcourier2.utills.viewBinding
 
 class ShopsFragment : BaseFragment(R.layout.fragment_shops) {
-
     private val binding by viewBinding { FragmentShopsBinding.bind(it) }
     private val viewModel by viewModels<ShopsViewModel>()
     private val adapter by lazy { ShopsAdapter(::onItemClicked) }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         setupObserver()
-        viewModel.getShops()
     }
 
     private fun setupUI() {
@@ -34,28 +31,9 @@ class ShopsFragment : BaseFragment(R.layout.fragment_shops) {
     }
 
     private fun setupObserver() {
-
         launchAndRepeatWithViewLifecycle {
-            viewModel.shopsState.collect {
-
-                when (it) {
-                    is UiStateList.LOADING -> {
-                        showProgress()
-                    }
-
-                    is UiStateList.SUCCESS -> {
-                        hideProgress()
-                        adapter.submitList(it.data)
-                    }
-
-                    is UiStateList.ERROR -> {
-                        hideProgress()
-                        showToast(it.message)
-                    }
-
-                    else -> {
-                    }
-                }
+            viewModel.shopsPaging.collectLatest { data ->
+                adapter.submitData(data)
             }
         }
     }
