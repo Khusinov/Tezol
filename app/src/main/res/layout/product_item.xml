@@ -19,7 +19,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="110.dp"
+            android:layout_height="110dp"
             app:cardBackgroundColor="#F3F3F3"
             app:strokeColor="#F3F3F3">
 

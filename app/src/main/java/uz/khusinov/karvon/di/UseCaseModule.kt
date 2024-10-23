@@ -16,6 +16,9 @@ import uz.khusinov.karvon.domain.use_case.auth.LoginUseCase
 import uz.khusinov.karvon.domain.use_case.category.CategoryUseCases
 import uz.khusinov.karvon.domain.use_case.category.GetCategoryUseCase
 import uz.khusinov.karvon.domain.use_case.home.GetAdsUseCase
+import uz.khusinov.karvon.domain.use_case.home.GetMostSellProductsUseCase
+import uz.khusinov.karvon.domain.use_case.home.GetNewProductsUseCase
+import uz.khusinov.karvon.domain.use_case.home.GetTopProductsUseCase
 import uz.khusinov.karvon.domain.use_case.home.HomeUseCases
 import uz.khusinov.karvon.domain.use_case.orders.GetOrdersUseCase
 import uz.khusinov.karvon.domain.use_case.shops.ShopsUseCase
@@ -86,7 +89,10 @@ object UseCaseModule {
     @Singleton
     fun provideHomeUseCase(repository: HomeRepository): HomeUseCases {
         return HomeUseCases(
-            getAdsUseCase = GetAdsUseCase(repository)
+            getAdsUseCase = GetAdsUseCase(repository),
+            getNewProductsUseCase = GetNewProductsUseCase(repository),
+            getMostSellProductsUseCase = GetMostSellProductsUseCase(repository),
+            getTopProductsUseCase = GetTopProductsUseCase(repository)
         )
     }
 

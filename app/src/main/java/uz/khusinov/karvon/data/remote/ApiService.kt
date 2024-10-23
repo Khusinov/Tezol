@@ -8,6 +8,7 @@ import retrofit2.http.Query
 import uz.khusinov.karvon.domain.model.AdsResponse
 import uz.khusinov.karvon.domain.model.ConfirmRequest
 import uz.khusinov.karvon.domain.model.ConfirmResponse
+import uz.khusinov.karvon.domain.model.Data
 import uz.khusinov.karvon.domain.model.LoginRequest
 import uz.khusinov.karvon.domain.model.Order
 import uz.khusinov.karvon.domain.model.base.BaseResponseList
@@ -47,6 +48,15 @@ interface ApiService {
 
     @GET("ads")
     suspend fun getAds(): BaseResponseObject<AdsResponse>
+
+    @GET("product/?new_product=True")
+    suspend fun getNewProducts(): BaseResponseObject<Data<Product>>
+
+    @GET("product/?top_product=True")
+    suspend fun getTopProducts(): BaseResponseObject<Data<Product>>
+
+    @GET("product/?most_sell=True")
+    suspend fun getMostSoldProducts(): BaseResponseObject<Data<Product>>
 
 //    @GET("http://router.project-osrm.org/route/v1/driving/{points}?steps=true")
 //    suspend fun getRoute(

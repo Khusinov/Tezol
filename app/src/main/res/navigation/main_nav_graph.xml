@@ -70,10 +70,18 @@
         <action
             android:id="@+id/action_mainFragment_to_selectedShopFragment"
             app:destination="@id/selectedShopFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_productDetailsBottomSheet"
+            app:destination="@id/productDetailsBottomSheet" />
     </fragment>
     <fragment
         android:id="@+id/selectedShopFragment"
         android:name="uz.khusinov.karvon.presentation.shops.selectedShop.SelectedShopFragment"
         android:label="fragment_selected_shop"
         tools:layout="@layout/fragment_selected_shop" />
+    <dialog
+        android:id="@+id/productDetailsBottomSheet"
+        android:name="uz.khusinov.karvon.presentation.shops.selectedShop.ProductDetailsBottomSheet"
+        android:label="ProductDetailsBottomSheet"
+        tools:layout="@layout/bottom_sheet_product_details"/>
 </navigation>

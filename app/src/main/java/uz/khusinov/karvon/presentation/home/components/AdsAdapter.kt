@@ -1,8 +1,6 @@
 package uz.khusinov.karvon.presentation.home.components
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +18,8 @@ class AdsAdapter(
 
     override fun isViewFromObject(view: View, image: Any): Boolean = (view == image)
 
-    @SuppressLint("MissingInflatedId")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(context).inflate(R.layout.item_ads, container, false)
-        Log.d("TAG", "instantiateItem: ${dataList[position]}")
         Picasso.get().load(dataList[position]).into(view.findViewById<ImageView>(R.id.ads_image))
         container.addView(view, 0)
         return view
